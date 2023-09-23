@@ -14,8 +14,8 @@ services:
       POSTGRESQL_PASSWORD: password
       POSTGRESQL_USER: postgres
       POSTGRESQL_HOST: db
-    command: ./bin/dev
-    tty: true
+    # command: ./bin/dev
+    # tty: true
   db:
     image: postgres
     volumes:
