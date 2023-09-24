@@ -4,7 +4,7 @@ databases:
     user: mysite
 
 services:
-  - type: rails
+  - type: web
     name: tickets_and_excavators
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
