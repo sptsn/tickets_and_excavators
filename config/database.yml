@@ -19,4 +19,5 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: tickets_and_excavators_production
