@@ -1,0 +1,18 @@
+databases:
+  - name: tickets_and_excavators_production
+    databaseName: tickets_and_excavators_production
+    user: mysite
+
+services:
+  - type: rails
+    name: tickets_and_excavators
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mysite
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
