@@ -7,8 +7,8 @@ class CreateTickets < ActiveRecord::Migration[7.0]
       t.string "request_action"
       t.string "response_due_date_time"
       t.string "primary_service_area_code_sa_code"
-      t.string "additional_service_area_codes_sa_code"
-      t.string "well_known_text"
+      t.string "additional_service_area_codes_sa_codes", array: true, default: []
+      t.jsonb "well_known_text"
       t.timestamps
     end
   end

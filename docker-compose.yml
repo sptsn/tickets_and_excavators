@@ -15,7 +15,7 @@ services:
       POSTGRESQL_USER: postgres
       POSTGRESQL_HOST: db
     # command: ./bin/dev
-    # tty: true
+    tty: true
   db:
     image: postgres
     volumes:

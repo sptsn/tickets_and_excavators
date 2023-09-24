@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_23_160909) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_24_154428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "excavators", force: :cascade do |t|
+    t.string "company_name"
+    t.string "address"
+    t.boolean "crew_on_site"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_excavators_on_ticket_id"
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.string "request_number"
@@ -21,8 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_160909) do
     t.string "request_action"
     t.string "response_due_date_time"
     t.string "primary_service_area_code_sa_code"
-    t.string "additional_service_area_codes_sa_code"
-    t.string "well_known_text"
+    t.string "additional_service_area_codes_sa_codes", default: [], array: true
+    t.jsonb "well_known_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
